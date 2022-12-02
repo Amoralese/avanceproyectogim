@@ -13,5 +13,10 @@ namespace PROYECTOGIMNASIO
         {
 
         }
+
+        protected void datagrid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
