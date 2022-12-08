@@ -9,7 +9,7 @@
     <title></title>
 </head>
 <body>
-    <from id="form1" runat="server">
+    <form id="form1" runat="server">
    <div class="navbar">
   <a href="#home">Inicio</a>
   <div class="subnav">

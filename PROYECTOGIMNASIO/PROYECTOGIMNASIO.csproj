@@ -84,9 +84,12 @@
     <Content Include="Facturacion.aspx" />
     <Content Include="HOME.aspx" />
     <Content Include="images\bg.jpg" />
+    <Content Include="images\CANTON.jpg" />
     <Content Include="images\CLIENTES.jpg" />
+    <Content Include="images\DISTRITO.jpg" />
     <Content Include="images\hombre.jpg" />
     <Content Include="images\PRODUCTOS.jpg" />
+    <Content Include="images\PROVINCIAS.jpg" />
     <Content Include="index.html" />
     <Content Include="Inicio.aspx" />
     <Content Include="js\bootstrap.min.js" />
@@ -96,7 +99,7 @@
     <Content Include="main.html" />
     <Content Include="menu.aspx" />
     <Content Include="Productos.aspx" />
-    <Content Include="provincia.aspx" />
+    <Content Include="PROVINCIA.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -106,10 +109,6 @@
     </Compile>
     <Compile Include="Canton.aspx.designer.cs">
       <DependentUpon>Canton.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Clientes.aspx.cs">
-      <DependentUpon>Clientes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Clientes.aspx.designer.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
@@ -165,12 +164,15 @@
       <DependentUpon>Productos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="provincia.aspx.cs">
-      <DependentUpon>provincia.aspx</DependentUpon>
+    <Compile Include="PROVINCIA.aspx.cs">
+      <DependentUpon>PROVINCIA.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="provincia.aspx.designer.cs">
-      <DependentUpon>provincia.aspx</DependentUpon>
+    <Compile Include="PROVINCIA.aspx.designer.cs">
+      <DependentUpon>PROVINCIA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="proyeectogimnasio2.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +14,53 @@ namespace PROYECTOGIMNASIO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                LlenarGrid();
+            }
+        }
+        protected void LlenarGrid()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["PROYECTOGIMNASIOConnectionString"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT *  FROM distrito"))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            GridView1.DataSource = dt;
+                            GridView1.DataBind();
+                        }
+                    }
+                }
+            }
+        }
 
+        protected void BAGREGARDISTRITO_Click1(object sender, EventArgs e)
+        {
+            String s = System.Configuration.ConfigurationManager.ConnectionStrings["PROYECTOGIMNASIOConnectionString"].ConnectionString;
+            SqlConnection conexion = new SqlConnection(s);
+            conexion.Open();
+            SqlCommand comando = new SqlCommand(" INSERT INTO DISTRITO VALUES('" + TDistrito.Text + "' )", conexion);
+            comando.ExecuteNonQuery();
+            conexion.Close();
+            LlenarGrid();
+        }
+
+        protected void BBORRARDISTRITO_Click(object sender, EventArgs e)
+        {
+            String s = System.Configuration.ConfigurationManager.ConnectionStrings["PROYECTOGIMNASIOConnectionString"].ConnectionString;
+            SqlConnection conexion = new SqlConnection(s);
+            conexion.Open();
+            SqlCommand comando = new SqlCommand(" DELETE  DISTRITO WHERE Codigodistrito = '" + TCodigodistrito.Text + "'", conexion);
+            comando.ExecuteNonQuery();
+            conexion.Close();
+            LlenarGrid();
         }
     }
 }

@@ -40,5 +40,27 @@ namespace PROYECTOGIMNASIO
                 }
             }
         }
+
+        protected void BAGREGARPRODUCTO_Click(object sender, EventArgs e)
+        {
+            String s = System.Configuration.ConfigurationManager.ConnectionStrings["PROYECTOGIMNASIOConnectionString"].ConnectionString;
+            SqlConnection conexion = new SqlConnection(s);
+            conexion.Open();
+            SqlCommand comando = new SqlCommand(" INSERT INTO PRODUCTO VALUES('" + TProducto.Text + "', '" + TPrecio.Text + "' )", conexion);
+            comando.ExecuteNonQuery();
+            conexion.Close();
+            LlenarGrid();
+        }
+
+        protected void BBORRARPRODUCTO_Click(object sender, EventArgs e)
+        {
+            String s = System.Configuration.ConfigurationManager.ConnectionStrings["PROYECTOGIMNASIOConnectionString"].ConnectionString;
+            SqlConnection conexion = new SqlConnection(s);
+            conexion.Open();
+            SqlCommand comando = new SqlCommand(" DELETE  PRODUCTO WHERE CODIGO = '" + TCodigoproducto.Text+ "'", conexion);
+            comando.ExecuteNonQuery();
+            conexion.Close();
+            LlenarGrid();
+        }
     }
 }
